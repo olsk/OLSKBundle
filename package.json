@@ -1,0 +1,7 @@
+{
+  "name": "OLSKBundle",
+  "main": "main.js",
+  "bin": {
+    "olsk-bundle": "./package-bin.js"
+  }
+}
