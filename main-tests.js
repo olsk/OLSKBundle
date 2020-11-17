@@ -12,7 +12,7 @@ describe('OLSKBundleClearPackageLock', function test_OLSKBundleClearPackageLock(
 		deepEqual(require('fs').existsSync(mod._OLSKBundlePackageLockPath()), false);
 	});
 
-	it('deletes package-lock.json if exists', function () {
+	it('does nothing', function () {
 		mod.OLSKBundleClearPackageLock();
 
 		deepEqual(require('fs').existsSync(mod._OLSKBundlePackageLockPath()), false);
