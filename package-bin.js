@@ -7,6 +7,8 @@ const mod = {
 	LifecycleScriptDidLoad() {
 		require('./main.js').OLSKBundleClearPackageLock();
 
+		require('./main.js').OLSKBundleCopyEnvSample();
+		
 		require('child_process').spawn('npm', ['install', '--no-save'], {
 			stdio: 'inherit',
 		});
