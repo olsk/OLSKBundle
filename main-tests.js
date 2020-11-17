@@ -19,3 +19,42 @@ describe('OLSKBundleClearPackageLock', function test_OLSKBundleClearPackageLock(
 	});
 
 });
+
+describe('OLSKBundleCopyEnvSample', function test_OLSKBundleCopyEnvSample() {
+
+	it('copies .env-sample if exists', function () {
+		const item = Math.random().toString();
+		
+		require('fs').writeFileSync(mod._OLSKBundleEnvSamplePath(), item);
+
+		mod.OLSKBundleCopyEnvSample();
+
+		deepEqual(require('fs').readFileSync(mod._OLSKBundleEnvPath(), 'utf8'), item);
+	});
+
+	it('maintains .env if exists', function () {
+		const item = Math.random().toString();
+		
+		require('fs').writeFileSync(mod._OLSKBundleEnvPath(), item);
+		
+		require('fs').writeFileSync(mod._OLSKBundleEnvSamplePath(), Math.random().toString());
+
+		mod.OLSKBundleCopyEnvSample();
+
+		deepEqual(require('fs').readFileSync(mod._OLSKBundleEnvPath(), 'utf8'), item);
+	});
+
+	it('does nothing if no .env-sample', function () {
+		require('fs').writeFileSync(mod._OLSKBundleEnvSamplePath(), Math.random().toString());
+
+		mod.OLSKBundleCopyEnvSample();
+
+		deepEqual(require('fs').existsSync(mod._OLSKBundlePackageLockPath()), false);
+	});
+
+	afterEach(function () {
+		require('fs').unlinkSync(mod._OLSKBundleEnvPath());
+		require('fs').unlinkSync(mod._OLSKBundleEnvSamplePath());
+	});
+
+});
