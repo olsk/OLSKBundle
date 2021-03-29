@@ -2,6 +2,20 @@ const { throws, deepEqual } = require('assert');
 
 const mod = require('./main.js');
 
+describe('OLSKBundleProjectGlobs', function test_OLSKBundleProjectGlobs() {
+
+	it('returns array', function () {
+		deepEqual(mod.OLSKBundleProjectGlobs(), [
+			'OLSK*',
+			'ROCO*',
+			'launchlet',
+			'MassageTXT',
+			'zerodatawrap',
+		]); 
+	});
+
+});
+
 describe('OLSKBundleClearPackageLock', function test_OLSKBundleClearPackageLock() {
 
 	it('deletes package-lock.json if exists', function () {

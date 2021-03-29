@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
+const main = require('./main.js');
+
 const mod = {
+
+	// DATA
 
 	// CONTROL
 
@@ -9,12 +13,7 @@ const mod = {
 			return;
 		}
 
-		return require('glob').sync(`+(${ [
-			'OLSK*',
-			'ROCO*',
-			'launchlet',
-			'MassageTXT',
-		].join('|') })/`, {
+		return require('glob').sync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/`, {
 			matchBase: true,
 			cwd: require('path').join(process.cwd(), 'node_modules'),
 			realpath: true,
@@ -25,12 +24,12 @@ const mod = {
 
 	LifecycleScriptDidLoad() {
 		if (process.argv[2] === 'cleanse') {
-			return mod.ControlCleanse(process.argv.slice(2), true);
+			return mod.ControlCleanse();
 		}
 
-		require('./main.js').OLSKBundleClearPackageLock();
+		main.OLSKBundleClearPackageLock();
 
-		require('./main.js').OLSKBundleCopyEnvSample();
+		main.OLSKBundleCopyEnvSample();
 		
 		require('child_process').spawn('npm', ['install', '--no-save'], {
 			stdio: 'inherit',

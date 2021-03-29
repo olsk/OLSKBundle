@@ -1,5 +1,15 @@
 const mod = {
 
+	OLSKBundleProjectGlobs () {
+		return [
+			'OLSK*',
+			'ROCO*',
+			'launchlet',
+			'MassageTXT',
+			'zerodatawrap',
+		];
+	},
+
 	_OLSKBundlePackageLockPath () {
 		return require('path').join(process.cwd(), 'package-lock.json');
 	},
