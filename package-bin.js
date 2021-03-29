@@ -20,11 +20,23 @@ const mod = {
 		}).forEach(require('OLSKDisk').OLSKDiskDeleteFolder);
 	},
 
+	ControlTidy () {
+		return require('glob').sync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/*test*`, {
+			matchBase: true,
+			cwd: require('path').join(process.cwd(), 'node_modules'),
+			realpath: true,
+		}).forEach(require('fs').unlinkSync);
+	},
+
 	// LIFECYCLE
 
 	LifecycleScriptDidLoad() {
 		if (process.argv[2] === 'cleanse') {
 			return mod.ControlCleanse();
+		}
+
+		if (process.argv[2] === 'tidy') {
+			return mod.ControlTidy();
 		}
 
 		main.OLSKBundleClearPackageLock();
