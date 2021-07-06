@@ -8,6 +8,7 @@ describe('OLSKBundleProjectGlobs', function test_OLSKBundleProjectGlobs() {
 		deepEqual(mod.OLSKBundleProjectGlobs(), [
 			'OLSK*',
 			'ROCO*',
+			'SWAR*',
 			'launchlet',
 			'MassageTXT',
 			'zerodatawrap',

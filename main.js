@@ -4,6 +4,7 @@ const mod = {
 		return [
 			'OLSK*',
 			'ROCO*',
+			'SWAR*',
 			'launchlet',
 			'MassageTXT',
 			'zerodatawrap',
