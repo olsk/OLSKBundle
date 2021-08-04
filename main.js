@@ -5,6 +5,7 @@ const mod = {
 			'OLSK*',
 			'ROCO*',
 			'SWAR*',
+			'ZDA*',
 			'launchlet',
 			'MassageTXT',
 			'zerodatawrap',

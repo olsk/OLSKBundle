@@ -9,6 +9,7 @@ describe('OLSKBundleProjectGlobs', function test_OLSKBundleProjectGlobs() {
 			'OLSK*',
 			'ROCO*',
 			'SWAR*',
+			'ZDA*',
 			'launchlet',
 			'MassageTXT',
 			'zerodatawrap',
