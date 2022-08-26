@@ -6,6 +6,7 @@
     "olsk-bundle": "./package-bin.js"
   },
   "dependencies": {
-    "glob": "latest"
+    "glob": "latest",
+    "OLSKDisk": "olsk/OLSKDisk"
   }
 }
