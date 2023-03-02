@@ -13,7 +13,7 @@ const mod = {
 			return;
 		}
 
-		return require('glob').sync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/`, {
+		return require('glob').globSync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/`, {
 			matchBase: true,
 			cwd: require('path').join(process.cwd(), 'node_modules'),
 			realpath: true,
@@ -21,7 +21,7 @@ const mod = {
 	},
 
 	ControlTidy () {
-		return require('glob').sync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/*test*`, {
+		return require('glob').globSync(`+(${ main.OLSKBundleProjectGlobs().join('|') })/*test*`, {
 			matchBase: true,
 			cwd: require('path').join(process.cwd(), 'node_modules'),
 			realpath: true,
