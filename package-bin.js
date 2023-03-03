@@ -25,6 +25,7 @@ const mod = {
 			matchBase: true,
 			cwd: require('path').join(process.cwd(), 'node_modules'),
 			realpath: true,
+			absolute: true,
 		}).filter(function (e) {
 			return !e.match('ui-test_template');
 		}).forEach(require('fs').unlinkSync);
